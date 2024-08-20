@@ -35,14 +35,10 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="bg-gray-800 p-4 fixed w-full top-0 left-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-2xl font-bold text-white">Market</div>
-        <input
-          type="text"
-          placeholder="Search..."
-          className="input input-bordered w-1/3 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+
         <div className="flex space-x-6 items-center">
           <Link
             to="/main/marketplace"
