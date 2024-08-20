@@ -11,33 +11,38 @@ const Profile: React.FC = () => {
       id: 1,
       name: "NFT 1",
       imageUrl: "https://via.placeholder.com/150",
+      description: "Description for NFT ",
     },
     {
       id: 2,
       name: "NFT 2",
       imageUrl: "https://via.placeholder.com/150",
+      description: "Description for NFT ",
     },
     {
       id: 1,
       name: "NFT 1",
       imageUrl: "https://via.placeholder.com/150",
+      description: "Description for NFT ",
     },
     {
       id: 2,
       name: "NFT 2",
       imageUrl: "https://via.placeholder.com/150",
+      description: "Description for NFT ",
     },
     {
       id: 1,
       name: "NFT 1",
       imageUrl: "https://via.placeholder.com/150",
+      description: "Description for NFT ",
     },
     {
       id: 2,
       name: "NFT 2",
       imageUrl: "https://via.placeholder.com/150",
+      description: "Description for NFT ",
     },
-    // Add more NFTs here
   ];
 
   const handleListNFT = (nft: any) => {
@@ -84,10 +89,10 @@ const Profile: React.FC = () => {
             <h2 className="text-xl font-semibold mb-2 text-indigo-600">
               {nft.name}
             </h2>
+            <p className="text-gray-600 text-sm mb-4 text-center">
+              {nft.description}
+            </p>
             <div className="flex justify-between w-full">
-              <button className="text-indigo-600 font-medium hover:underline">
-                View Details
-              </button>
               <button
                 onClick={() => handleListNFT(nft)}
                 className="text-indigo-600 font-medium hover:underline"
