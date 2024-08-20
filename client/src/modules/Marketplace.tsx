@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
 interface NFT {
   id: number;
   name: string;
   imageUrl: string;
   price: string;
+  description: string;
 }
 
 const nftData: NFT[] = [
@@ -14,48 +13,56 @@ const nftData: NFT[] = [
     name: "NFT 1",
     imageUrl: "https://via.placeholder.com/150",
     price: "0.05",
+    description: "Description for NFT ",
   },
   {
     id: 2,
     name: "NFT 2",
     imageUrl: "https://via.placeholder.com/150",
     price: "0.10",
+    description: "Description for NFT ",
   },
   {
     id: 3,
     name: "NFT 3",
     imageUrl: "https://via.placeholder.com/150",
     price: "0.05",
+    description: "Description for NFT ",
   },
   {
     id: 4,
     name: "NFT 4",
     imageUrl: "https://via.placeholder.com/150",
     price: "0.10",
+    description: "Description for NFT ",
   },
   {
     id: 5,
     name: "NFT 5",
     imageUrl: "https://via.placeholder.com/150",
     price: "0.05",
+    description: "Description for NFT ",
   },
   {
     id: 6,
     name: "NFT 6",
     imageUrl: "https://via.placeholder.com/150",
     price: "0.10",
+    description: "Description for NFT ",
   },
   {
     id: 7,
     name: "NFT 7",
     imageUrl: "https://via.placeholder.com/150",
     price: "0.05",
+    description: "Description for NFT ",
   },
   {
     id: 8,
     name: "NFT 8",
     imageUrl: "https://via.placeholder.com/150",
     price: "0.10",
+    description: "Description for NFT ",
   },
 ];
 
@@ -90,14 +97,9 @@ const MarketPlace: React.FC = () => {
                 className="w-full h-48 object-cover rounded-md"
               />
               <h2 className="text-xl font-bold mt-4">{nft.name}</h2>
-              <p className="text-gray-600 mt-2">Price: {nft.price} ETH</p>
+              <p className="text-gray-600 text-sm  mt-2  ">{nft.description}</p>
+              <p className="text-gray-600">Price: {nft.price} ETH</p>
               <div className="flex justify-between mt-4">
-                <Link
-                  to={`/nft/${nft.id}`}
-                  className="text-blue-500 border border-blue-500 px-4 py-2 rounded-md hover:bg-blue-500 hover:text-white transition"
-                >
-                  View Details
-                </Link>
                 <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
                   Buy Now
                 </button>
