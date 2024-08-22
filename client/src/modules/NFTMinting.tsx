@@ -107,7 +107,6 @@ const CreateNFT: React.FC = () => {
       // Upload metadata to Pinata with the image URL
       const metadataUrl = await uploadMetadataToPinata(imageUrl);
 
-      // Create an instance of the contract
       const provider = new ethers.BrowserProvider((window as any).ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
@@ -116,7 +115,6 @@ const CreateNFT: React.FC = () => {
         await signer
       );
 
-      // Call the contract function to create the NFT
       const tx = await contract.createNFT(metadataUrl);
       await tx.wait();
 

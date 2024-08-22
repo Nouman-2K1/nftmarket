@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [account, setAccount] = useState<string | null>(null);
   const [balance, setBalance] = useState<string | null>(null);
+
+  useEffect(() => {
+    const savedAccount = localStorage.getItem("account");
+    const savedBalance = localStorage.getItem("balance");
+    if (savedAccount && savedBalance) {
+      setAccount(savedAccount);
+      setBalance(savedBalance);
+    }
+  }, []);
 
   const connectWallet = async () => {
     const { ethereum } = window as any;
@@ -13,8 +22,10 @@ const Navbar: React.FC = () => {
         const accounts = await ethereum.request({
           method: "eth_requestAccounts",
         });
-        setAccount(accounts[0]);
-        fetchBalance(accounts[0]);
+        const account = accounts[0];
+        setAccount(account);
+        fetchBalance(account);
+        localStorage.setItem("account", account);
       } catch (error) {
         console.error("Connection to MetaMask failed", error);
       }
@@ -26,12 +37,16 @@ const Navbar: React.FC = () => {
   const fetchBalance = async (account: string) => {
     const provider = new ethers.BrowserProvider((window as any).ethereum);
     const balance = await provider.getBalance(account);
-    setBalance(ethers.formatEther(balance));
+    const formattedBalance = ethers.formatEther(balance);
+    setBalance(formattedBalance);
+    localStorage.setItem("balance", formattedBalance);
   };
 
   const handleLogout = () => {
     setAccount(null);
     setBalance(null);
+    localStorage.removeItem("account");
+    localStorage.removeItem("balance");
   };
 
   return (
