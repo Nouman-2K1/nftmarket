@@ -124,7 +124,6 @@ const Profile: React.FC = () => {
         ethers.parseEther(price)
       );
 
-      // Wait for the transaction to be mined
       await transaction.wait();
 
       alert("NFT has been successfully listed for sale!");
@@ -159,7 +158,6 @@ const Profile: React.FC = () => {
 
       const transaction = await contract.cancelListing(nft.id);
 
-      // Wait for the transaction to be mined
       await transaction.wait();
 
       alert("NFT listing has been successfully canceled!");
