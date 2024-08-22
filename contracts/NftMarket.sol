@@ -128,4 +128,9 @@ contract NFTMarketplace is Ownable, ERC721URIStorage {
 
         return items;
     }
+
+    // Get the listing information for an NFT
+    function getListing(uint256 tokenId) public view returns (Listing memory) {
+       return _listings[tokenId];
+    }
 }
